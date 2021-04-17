@@ -22,6 +22,7 @@ A weather app using BLOC state management. This is the second post in this serie
     - state file for all the states
 - This tutorial uses a fake weather API so no finding API keys. It's a really simple JSON though
 <br>
+```json
 {
     "temperature": 42,
     "yesterdayMax": 44,
@@ -29,6 +30,7 @@ A weather app using BLOC state management. This is the second post in this serie
     "todayMax": 43,
     "todayMin": 34
 }
+```
 [api link](https://01b0f7a1-9563-47f5-b628-f14c51464ec5.mock.pstmn.io/api/get-weather-success?city=)
 <br>
 - We need to create a model for this JSON data
