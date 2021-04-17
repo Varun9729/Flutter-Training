@@ -1,4 +1,7 @@
+import 'package:bloc_one/bloc/counter_bloc.dart';
+import 'package:bloc_one/bloc/counter_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -6,23 +9,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  CounterBloc _counterBloc;
   @override
   Widget build(BuildContext context) {
+    _counterBloc = BlocProvider.of<CounterBloc>(context);
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          setState(() {
-            _counter++;
-          });
+          _counterBloc.add(CounterEvent.increment);
         },
       ),
       appBar: AppBar(
         title: Text('Bloc Counter Example'),
       ),
       body: Center(
-        child: Text('$_counter'),
+        child: BlocBuilder<CounterBloc, int>(
+          builder: (context, state) {
+            return Text('$state',textScaleFactor: 4.0,);
+          },
+        ),
       ),
     );
   }

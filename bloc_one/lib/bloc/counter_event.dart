@@ -1,0 +1,2 @@
+enum CounterEvent {increment}
+
